@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { motion, stagger } from "framer-motion";
@@ -64,11 +65,14 @@ const Skills = () => {
                 className="app__flex"
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
+                <Image
+                  width={300}
+                  height={300}
+                  src={urlFor(skill.icon).url()}
+                  alt={skill.name}
+                />
               </div>
-              <p className="text-[0.8rem] text-left dark:text-red-400">
-                {skill.name}
-              </p>
+              <p className="text-[0.8rem] text-left">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>

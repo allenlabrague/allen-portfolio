@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -37,7 +38,12 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={urlFor(about.imgUrl)} alt={about.title} />
+            <Image
+              width={300}
+              height={300}
+              src={urlFor(about.imgUrl).url()}
+              alt={about.title}
+            />
             <h2
               className="text-base font-extrabold text-left"
               style={{ marginTop: 20 }}

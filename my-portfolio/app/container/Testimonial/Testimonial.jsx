@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { motion, stagger } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
@@ -37,7 +39,12 @@ const Testimonials = () => {
       {testimonials.length && (
         <>
           <div className="app__testimonials-item app__flex">
-            <img src={urlFor(test.imgurl)} alt="testimonials" />
+            <Image
+              width={300}
+              height={300}
+              src={urlFor(test.imgurl).url()}
+              alt="testimonials"
+            />
             <div className="app__testimonials-content">
               <p className="p-text">{test.feedback}</p>
               <div>
@@ -83,7 +90,12 @@ const Testimonials = () => {
             transition={{ duration: 0.5, type: "tween" }}
             key={brand._id}
           >
-            <img src={urlFor(brand.imgUrl)} alt={brand.name} />
+            <Image
+              width={300}
+              height={300}
+              src={urlFor(brand.imgUrl).url()}
+              alt={brand.name}
+            />
           </motion.div>
         ))}
       </div>

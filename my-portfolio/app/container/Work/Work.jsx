@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion, stagger } from "framer-motion";
@@ -66,7 +68,12 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt="work.name" />
+              <Image
+                width={300}
+                height={300}
+                src={urlFor(work.imgUrl).url()}
+                alt="work.name"
+              />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}

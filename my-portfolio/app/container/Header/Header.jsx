@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
+import Image from "next/image";
 
 import { AppWrap } from "../../wrapper";
 import AnimationBlob from "../../../public/assets/blue-blob.json";
@@ -49,7 +50,12 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img src="/assets/metaverse-people.png" alt="profile_bg" />
+        <Image
+          width={500}
+          height={500}
+          src="/assets/metaverse-people.png"
+          alt="profile_bg"
+        />
 
         <motion.div
           whileInView={{ scale: [0, 1] }}
@@ -68,12 +74,27 @@ const Header = () => {
         className="app__header-circles"
       >
         {[
-          <img src="/assets/react.png" />,
-          <img src="/assets/tailwind-logo.svg" />,
-          <img src="/assets/next-js-logo.svg" />,
+          <Image width={300} height={300} src="/assets/react.png" alt="logo" />,
+          <Image
+            width={300}
+            height={300}
+            src="/assets/tailwind-logo.svg"
+            alt="logo"
+          />,
+          <Image
+            width={300}
+            height={300}
+            src="/assets/next-js-logo.svg"
+            alt="logo"
+          />,
         ].map((images, index) => (
           <div className="circle-cmp app__flex" key={index}>
-            <img src={images.props.src} alt="circle" />
+            <Image
+              width={300}
+              height={300}
+              src={images.props.src}
+              alt="circle"
+            />
           </div>
         ))}
       </motion.div>
