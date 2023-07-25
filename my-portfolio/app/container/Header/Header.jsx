@@ -87,8 +87,8 @@ const Header = () => {
             src="/assets/next-js-logo.svg"
             alt="logo"
           />,
-        ].map((images, index) => (
-          <div className="circle-cmp app__flex" key={index}>
+        ].map((images, i) => (
+          <div className="circle-cmp app__flex" key={i}>
             <Image
               width={300}
               height={300}
