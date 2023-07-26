@@ -73,20 +73,30 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[
-          { src: "/assets/react.png", alt: "logo1" },
-          { src: "/assets/tailwind-logo.svg", alt: "logo2" },
-          { src: "/assets/next-js-logo.svg", alt: "logo3" },
-        ].map((images, index) => (
-          <div key={index} className="circle-cmp app__flex">
-            <Image
-              width={300}
-              height={300}
-              src={images.props.src}
-              alt="circle"
-            />
-          </div>
-        ))}
+        <div className="circle-cmp app__flex">
+          <Image
+            width={300}
+            height={300}
+            src="/assets/react.png"
+            alt="circle"
+          />
+        </div>
+        <div className="circle-cmp app__flex">
+          <Image
+            width={300}
+            height={300}
+            src="/assets/next-js-logo.svg"
+            alt="circle"
+          />
+        </div>
+        <div className="circle-cmp app__flex">
+          <Image
+            width={300}
+            height={300}
+            src="/assets/tailwind-logo.svg"
+            alt="circle"
+          />
+        </div>
       </motion.div>
     </div>
   );
