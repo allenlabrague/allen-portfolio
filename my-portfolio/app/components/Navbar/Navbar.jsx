@@ -16,10 +16,7 @@ import { useTheme } from "next-themes";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
-
   const [toggle, setToggle] = useState(false);
-  const currentTheme = theme === "system" ? {} : theme;
 
   return (
     <div className="app__navbar">
@@ -33,25 +30,7 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="hidden lg:block">
-        {currentTheme === "dark" ? (
-          <Image
-            className="cursor-pointer"
-            width={70}
-            height={70}
-            src="/assets/sun.svg"
-            alt="moon-logo"
-            onClick={() => setTheme("light")}
-          />
-        ) : (
-          <Image
-            className="cursor-pointer"
-            width={70}
-            height={70}
-            src="/assets/moon.svg"
-            alt="sun-logo"
-            onClick={() => setTheme("dark")}
-          />
-        )}
+        <Image width={35} height={35} src="/assets/myLogo.png" alt="my-logo" />
       </div>
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
@@ -94,26 +73,14 @@ const Navbar = () => {
                 </h3>
               </span>
 
-              <span className="flex items-center flex-col ml-4 gap-1">
-                <h3 className="text-black font-semibold">Dark Mode :</h3>
-                {currentTheme === "dark" ? (
-                  <Image
-                    src="/assets/sun.svg"
-                    width={70}
-                    height={70}
-                    alt="moon-logo"
-                    onClick={() => setTheme("light")}
-                  />
-                ) : (
-                  <Image
-                    src="/assets/moon.svg"
-                    width={70}
-                    height={70}
-                    alt="sun-logo"
-                    onClick={() => setTheme("dark")}
-                    className="cursor-pointer"
-                  />
-                )}
+              <span className="flex items-center ml-4 gap-2">
+                <Image
+                  width={50}
+                  height={50}
+                  src="/assets/myLogo.png"
+                  alt="my-logo"
+                />
+                <h3 className="uppercase text-black font-semibold">Allen</h3>
               </span>
             </ul>
           </motion.div>
