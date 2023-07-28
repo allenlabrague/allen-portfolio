@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import Image from "next/image";
 
-import { AppWrap } from "../../wrapper";
+import { HeaderWrap } from "../../wrapper";
 import AnimationBlob from "../../../public/assets/blue-blob.json";
 import AnimationHand from "../../../public/assets/handhello.json";
 import "./Header.scss";
@@ -51,10 +51,11 @@ const Header = () => {
         className="app__header-img"
       >
         <Image
-          width={500}
-          height={500}
+          width={700}
+          height={700}
           src="/assets/metaverse-people.png"
           alt="profile_bg"
+          priority
         />
 
         <motion.div
@@ -102,4 +103,4 @@ const Header = () => {
   );
 };
 
-export default AppWrap(Header, "home", "app__primarybg");
+export default HeaderWrap(Header, "home", "app__primarybg");

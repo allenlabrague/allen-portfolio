@@ -11,7 +11,7 @@ const AppWrap = (Component, idName, classNames) =>
         <div className="app__wrapper app__flex">
           <Component />
 
-          <div className="copyright">
+          <div className="w-full pt-8 flex flex-col justify-end items-end">
             <div className="flex gap-1 items-center justify-center">
               <h4 className="text-xs">Created by: </h4>
               <span className="text-[#313bac] font-semibold">Allen</span>
@@ -22,7 +22,7 @@ const AppWrap = (Component, idName, classNames) =>
                 <Image
                   width={80}
                   height={80}
-                  className="cursor-pointer"
+                  className="cursor-pointer w-auto h-auto"
                   src="/assets/vercel.svg"
                   alt="vercel-logo"
                 />

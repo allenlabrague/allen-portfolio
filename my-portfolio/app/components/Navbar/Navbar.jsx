@@ -35,17 +35,19 @@ const Navbar = () => {
       <div className="hidden lg:block">
         {currentTheme === "dark" ? (
           <Image
-            src="/assets/sun.svg"
+            className="cursor-pointer"
             width={70}
             height={70}
+            src="/assets/sun.svg"
             alt="moon-logo"
             onClick={() => setTheme("light")}
           />
         ) : (
           <Image
-            src="/assets/moon.svg"
+            className="cursor-pointer"
             width={70}
             height={70}
+            src="/assets/moon.svg"
             alt="sun-logo"
             onClick={() => setTheme("dark")}
           />
