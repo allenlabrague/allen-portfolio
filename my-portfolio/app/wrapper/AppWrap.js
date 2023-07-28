@@ -16,13 +16,16 @@ const AppWrap = (Component, idName, classNames) =>
               <h4 className="text-xs">Created by: </h4>
               <span className="text-[#313bac] font-semibold">Allen</span>
             </div>
-            <div className="flex gap-1 items-center justify-center">
+            <div className="flex gap-1 items-center justify-center relative">
               <h4 className="text-lg font-semibold">Deployed on</h4>
-              <Link href="https://vercel.com/" target="_blank">
+              <Link
+                href="https://vercel.com/"
+                target="_blank"
+                className="relative h-[20px] w-[80px]"
+              >
                 <Image
-                  width={80}
-                  height={80}
-                  className="cursor-pointer w-auto h-auto"
+                  fill
+                  className="cursor-pointer absolute right-0"
                   src="/assets/vercel.svg"
                   alt="vercel-logo"
                 />

@@ -11,7 +11,6 @@ import Image from "next/image";
 
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
 
 import "./Navbar.scss";
 
