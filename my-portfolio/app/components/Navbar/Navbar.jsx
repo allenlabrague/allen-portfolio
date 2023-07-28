@@ -19,7 +19,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
 
   const [toggle, setToggle] = useState(false);
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme = theme === "system" ? {} : theme;
 
   return (
     <div className="app__navbar">

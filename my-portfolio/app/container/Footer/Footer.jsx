@@ -4,13 +4,8 @@ import Link from "next/link";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
-import { Button } from "@nextui-org/react";
-import { BiCoffeeTogo } from "react-icons/bi";
-import { BsFillSendFill } from "react-icons/bs";
-import { Send, Buy } from "react-iconly";
+import { BiCoffeeTogo, BiSolidSend } from "react-icons/bi";
 
-import AnimationPhone from "../../../public/assets/mobile-animation.json";
-import AnimationThankyou from "../../../public/assets/thankyou-animation.json";
 import "./Footer.scss";
 
 import ShibaCoffeRelax from "../../../public/assets/Shiba Coffee-relax.json";
@@ -59,14 +54,19 @@ const Footer = () => {
             className="app__footer-phoneAnimation"
             animationData={ShibaCoffeRelax}
           />
-          <Link href="https://www.buymeacoffee.com/allenlabraV" target="_blank">
-            <Button
-              auto
-              icon={<Buy set="bold" />}
-              className="bg-[#313bac] font-bold"
-            >
+          <Link
+            href="https://www.buymeacoffee.com/allenlabraV"
+            target="_blank"
+            className="relative flex items-center"
+          >
+            <button className="bg-[#313bac] font-bold py-2 px-6 pl-10 rounded-lg text-center text-white relative">
               Buy me a coffee
-            </Button>
+            </button>
+            <BiCoffeeTogo
+              color="white"
+              fontSize={20}
+              className="absolute left-3"
+            />
           </Link>
         </div>
 
@@ -104,15 +104,19 @@ const Footer = () => {
                 required
               />
             </div>
-            <Button
-              auto
+
+            <button
               type="button"
-              iconRight={<Send set="bold" />}
               onClick={handleSubmit}
-              className="mt-4"
+              className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center"
             >
               {loading ? "Sending" : "Send Message"}
-            </Button>
+              <BiSolidSend
+                color="white"
+                fontSize={20}
+                className="absolute right-3"
+              />
+            </button>
           </div>
         ) : (
           <div className="app__footer-greeting flex items-center justify-center">
