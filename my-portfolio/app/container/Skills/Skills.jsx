@@ -35,7 +35,7 @@ const Skills = () => {
       </h2>
 
       <div className="app__skills-container">
-        <div className="app__skills-list">
+        <div className="app__skills-list h-min">
           {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}

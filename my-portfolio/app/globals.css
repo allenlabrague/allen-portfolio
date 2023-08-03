@@ -37,3 +37,10 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
+
+h3.active {
+  background-color: #0072ee;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
