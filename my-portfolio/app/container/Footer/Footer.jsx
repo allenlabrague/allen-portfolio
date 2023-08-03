@@ -2,7 +2,7 @@ import { useState } from "react";
 import Lottie from "lottie-react";
 import Link from "next/link";
 
-import { AppWrap, MotionWrap } from "../../wrapper";
+import { FooterWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
 import { BiCoffeeTogo, BiSolidSend } from "react-icons/bi";
 
@@ -105,18 +105,38 @@ const Footer = () => {
               />
             </div>
 
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center"
-            >
-              {loading ? "Sending" : "Send Message"}
-              <BiSolidSend
-                color="white"
-                fontSize={20}
-                className="absolute right-3"
-              />
-            </button>
+            {name && email && message ? (
+              <>
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center transition-opacity"
+                >
+                  {loading ? "Sending" : "Send Message"}
+                  <BiSolidSend
+                    color="white"
+                    fontSize={20}
+                    className="absolute right-3"
+                  />
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  disabled
+                  type="button"
+                  onClick={handleSubmit}
+                  className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center opacity-70 cursor-not-allowed transition-opacity"
+                >
+                  {loading ? "Sending" : "Send Message"}
+                  <BiSolidSend
+                    color="white"
+                    fontSize={20}
+                    className="absolute right-3"
+                  />
+                </button>
+              </>
+            )}
           </div>
         ) : (
           <div className="app__footer-greeting flex items-center justify-center">
@@ -130,4 +150,4 @@ const Footer = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Footer, "app__footer"), "contact");
+export default FooterWrap(MotionWrap(Footer, "app__footer"), "contact");

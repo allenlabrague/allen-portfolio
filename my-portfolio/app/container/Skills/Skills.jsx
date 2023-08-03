@@ -34,8 +34,8 @@ const Skills = () => {
         Skills & Experience
       </h2>
 
-      <div className="app__skills-container relative">
-        <div className="app__skills-list md:absolute md:right-[40%] md:top-0">
+      <div className="app__skills-container">
+        <div className="app__skills-list">
           {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
@@ -58,7 +58,7 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
-        <div className="app__skills-exp md:ml-[55%]">
+        <div className="app__skills-exp ">
           {experience?.map((experience) => (
             <div className="app__skills-exp-item" key={experience._id}>
               <div className="app__skills-exp-year">
