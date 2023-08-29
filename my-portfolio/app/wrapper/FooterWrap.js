@@ -1,6 +1,8 @@
+import { useTheme } from "next-themes";
 import { NavigationDots, SocialMedia } from "../components";
 import Link from "next/link";
 import Image from "next/image";
+import { Logo } from "../components/Logo";
 
 const AppWrap = (Component, idName, classNames) =>
   function HOC() {
@@ -23,12 +25,7 @@ const AppWrap = (Component, idName, classNames) =>
                 target="_blank"
                 className="relative h-[20px] w-[80px]"
               >
-                <Image
-                  fill
-                  className="cursor-pointer absolute right-0"
-                  src="/assets/vercel.svg"
-                  alt="vercel-logo"
-                />
+                <Logo theme={useTheme().theme} />
               </Link>
             </div>
           </div>

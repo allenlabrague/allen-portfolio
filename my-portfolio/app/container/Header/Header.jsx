@@ -7,7 +7,9 @@ import Image from "next/image";
 import { HeaderWrap } from "../../wrapper";
 import AnimationBlob from "../../../public/assets/blue-blob.json";
 import AnimationHand from "../../../public/assets/handhello.json";
+import { NextLogo } from "@/app/components/Logo";
 import "./Header.scss";
+import { useTheme } from "next-themes";
 
 const scaleVariants = {
   whileInView: {
@@ -83,12 +85,7 @@ const Header = () => {
           />
         </div>
         <div className="circle-cmp app__flex dark:dark:bg-[#383838]">
-          <Image
-            width={300}
-            height={300}
-            src="/assets/next-js-logo.svg"
-            alt="circle"
-          />
+          <NextLogo theme={useTheme().theme} />
         </div>
         <div className="circle-cmp app__flex dark:dark:bg-[#383838]">
           <Image
