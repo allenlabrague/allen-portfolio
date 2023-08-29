@@ -3,13 +3,13 @@
 import Image from "next/image";
 
 import { useState, useEffect } from "react";
-import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import { AiFillEye, AiOutlineLink } from "react-icons/ai";
 import { motion, stagger } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
-import PaginationPage from "@/app/components/PaginationPage";
+import Link from "next/link";
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -83,42 +83,41 @@ const Work = () => {
                 height={300}
                 src={urlFor(work.imgUrl).url()}
                 alt="work.name"
+                className="relative"
               />
-
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{
-                  duration: 0.25,
-                  ease: "easeInOut",
-                  staggerChilldren: 0.5,
-                }}
-                className="app__work-hover app__flex"
-              >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="app__flex"
+              <div className="absolute md:hidden bottom-[40%] mx-auto bg-[#00000080] p-4 rounded-full">
+                <Link href={work.projectLink} target="_blank">
+                  <AiOutlineLink color="white" fontSize={30} />
+                </Link>
+              </div>
+              <div className="hidden md:block">
+                <motion.div
+                  whileHover={{ opacity: [0, 1] }}
+                  transition={{
+                    duration: 0.25,
+                    ease: "easeInOut",
+                    staggerChilldren: 0.5,
+                  }}
+                  className="app__work-hover app__flex"
+                >
+                  <Link
+                    href={work.projectLink}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="app__flex"
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
+                    <motion.div
+                      whileInView={{ scale: [0, 1] }}
+                      whileHover={{ scale: [1, 0.9] }}
+                      transition={{
+                        duration: 0.25,
+                      }}
+                      className="app__flex"
+                    >
+                      <AiFillEye />
+                    </motion.div>
+                  </Link>
+                </motion.div>
+              </div>
             </div>
 
             <div className="app__work-content app__flex">
