@@ -5,7 +5,10 @@ import Image from "next/image";
 const AppWrap = (Component, idName, classNames) =>
   function HOC() {
     return (
-      <div id={idName} className={`app__container ${classNames}`}>
+      <div
+        id={idName}
+        className={`app__container ${classNames} dark:bg-[#121212]`}
+      >
         <div className="invisible">
           <SocialMedia />
         </div>

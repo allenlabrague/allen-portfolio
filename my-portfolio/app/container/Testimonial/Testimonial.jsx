@@ -38,7 +38,7 @@ const Testimonials = () => {
     <>
       {testimonials.length && (
         <>
-          <div className="app__testimonials-item app__flex">
+          <div className="app__testimonials-item app__flex bg-white dark:bg-[#383838]">
             <Image
               width={300}
               height={300}
@@ -46,7 +46,7 @@ const Testimonials = () => {
               alt="testimonials"
             />
             <div className="app__testimonials-content">
-              <p className="p-text">{test.feedback}</p>
+              <p className="p-text dark:text-white">{test.feedback}</p>
               <div>
                 <h4 className="bold-text">{test.name}</h4>
                 <h5 className="p-text">{test.company}</h5>
@@ -56,7 +56,7 @@ const Testimonials = () => {
 
           <div className="app__testimonials-btns app__flex">
             <div
-              className="app__flex"
+              className="app__flex bg-white dark:bg-[#383838]"
               onClick={() =>
                 handleClick(
                   currentIndex === 0
@@ -68,7 +68,7 @@ const Testimonials = () => {
               <HiChevronLeft />
             </div>
             <div
-              className="app__flex"
+              className="app__flex bg-white dark:bg-[#383838]"
               onClick={() =>
                 handleClick(
                   currentIndex === testimonials.length - 1

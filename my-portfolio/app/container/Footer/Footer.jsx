@@ -6,6 +6,8 @@ import { FooterWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
 import { BiCoffeeTogo, BiSolidSend } from "react-icons/bi";
 
+import { Button } from "@nextui-org/button";
+
 import "./Footer.scss";
 
 import ShibaCoffeRelax from "../../../public/assets/Shiba Coffee-relax.json";
@@ -57,24 +59,22 @@ const Footer = () => {
           <Link
             href="https://www.buymeacoffee.com/allenlabraV"
             target="_blank"
-            className="relative flex items-center"
+            className="flex items-center"
           >
-            <button className="bg-[#313bac] font-bold py-2 px-6 pl-10 rounded-lg text-center text-white relative">
+            <Button
+              className="bg-[#313bac] font-bold py-2 px-6 rounded-lg text-center text-white"
+              startContent={<BiCoffeeTogo />}
+            >
               Buy me a coffee
-            </button>
-            <BiCoffeeTogo
-              color="white"
-              fontSize={20}
-              className="absolute left-3"
-            />
+            </Button>
           </Link>
         </div>
 
         {!isFormSubmitted ? (
           <div className="app__footer-form app__flex w-[500px]">
-            <div className="app__footer-form-input app_flex">
+            <div className="app__footer-form-input app_flex bg-red-400">
               <input
-                className="p-text"
+                className="p-text bg-[#edf2f8] dark:dark:bg-[#383838]"
                 name="name"
                 type="text"
                 placeholder="Your Name"
@@ -85,7 +85,7 @@ const Footer = () => {
             </div>
             <div className="app__footer-form-input app_flex">
               <input
-                className="p-text"
+                className="p-text bg-[#edf2f8] dark:dark:bg-[#383838]"
                 name="email"
                 type="email"
                 placeholder="Your Email"
@@ -96,7 +96,7 @@ const Footer = () => {
             </div>
             <div>
               <textarea
-                className="p-text"
+                className="p-text bg-[#edf2f8] dark:dark:bg-[#383838]"
                 placeholder="Your Message"
                 value={message}
                 name="message"
@@ -107,34 +107,36 @@ const Footer = () => {
 
             {name && email && message ? (
               <>
-                <button
+                <Button
                   type="button"
                   onClick={handleSubmit}
-                  className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center transition-opacity"
+                  className="bg-[#313bac] font-bold py-2 px-6 rounded-lg text-center text-white flex items-center transition-opacity"
+                  endContent={<BiSolidSend />}
                 >
-                  {loading ? "Sending" : "Send Message"}
-                  <BiSolidSend
-                    color="white"
-                    fontSize={20}
-                    className="absolute right-3"
-                  />
-                </button>
+                  {loading ? (
+                    <Button
+                      isLoading
+                      className="bg-[#313bac] font-bold py-2 rounded-lg text-white opacity-70 transition-opacity"
+                      endContent={<BiSolidSend />}
+                    >
+                      Sending
+                    </Button>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
               </>
             ) : (
               <>
-                <button
+                <Button
                   disabled
                   type="button"
                   onClick={handleSubmit}
-                  className="mt-4 bg-[#313bac] font-bold py-2 px-6 pr-10 rounded-lg text-center text-white relative flex items-center opacity-70 cursor-not-allowed transition-opacity"
+                  className="bg-[#313bac] font-bold py-2 px-6 rounded-lg text-center text-white flex items-center opacity-70 cursor-not-allowed transition-opacity"
+                  endContent={<BiSolidSend />}
                 >
-                  {loading ? "Sending" : "Send Message"}
-                  <BiSolidSend
-                    color="white"
-                    fontSize={20}
-                    className="absolute right-3"
-                  />
-                </button>
+                  {loading ? "" : "Send Message"}
+                </Button>
               </>
             )}
           </div>

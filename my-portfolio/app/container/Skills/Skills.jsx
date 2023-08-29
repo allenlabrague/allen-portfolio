@@ -5,11 +5,13 @@ import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { motion, stagger } from "framer-motion";
-import Tooltip from "./Tooltip";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Skills.scss";
+
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { FaCaretLeft } from "react-icons/fa";
 
 const Skills = () => {
   const [experience, setExperience] = useState([]);
@@ -43,15 +45,13 @@ const Skills = () => {
               className="app__skills-item app__flex"
               key={skill._id}
             >
-              <div
-                className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
-              >
+              <div className="app__flex bg-[#EDF2F8] dark:dark:bg-[#383838]">
                 <Image
                   width={300}
                   height={300}
                   src={urlFor(skill.icon).url()}
                   alt={skill.name}
+                  className=""
                 />
               </div>
               <p className="text-[0.8rem] text-left">{skill.name}</p>
@@ -64,22 +64,33 @@ const Skills = () => {
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
-              <div className="app_skills-exp-works">
+              <div className="app_skills-exp-works w-full">
                 {experience.works.map((work) => (
                   <motion.div
                     whileInView={{ opacity: [0, 1] }}
                     transition={{ duration: 0.5 }}
-                    className="app__skills-exp-work mb-3"
+                    className="app__skills-exp-work w-full"
                     key={work._id}
                   >
-                    <Tooltip text={work.desc}>
-                      <h4 className="text-base font-extrabold text-left cursor-pointer">
-                        {work.name}
-                      </h4>
-                    </Tooltip>
-                    <p className="text-[0.8rem] text-gray-400 text-left">
-                      {work.company}
-                    </p>
+                    <Accordion>
+                      <AccordionItem
+                        subtitle={
+                          <p className="text-[0.8rem] text-gray-400 text-left">
+                            {work.company}
+                          </p>
+                        }
+                        title={
+                          <h4 className="text-base font-extrabold text-left cursor-pointer -mt-3">
+                            {work.name}
+                          </h4>
+                        }
+                        aria-label={work.name}
+                        key={work.desc}
+                        indicator={<FaCaretLeft />}
+                      >
+                        <p>{work.desc}</p>
+                      </AccordionItem>
+                    </Accordion>
                   </motion.div>
                 ))}
               </div>
